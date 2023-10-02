@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -8,42 +9,32 @@ const Footer = () => {
          <h1 className='text-3xl font-bold'>Phone Master</h1>
         <ul className="flex flex-wrap items-center gap-y-2 gap-x-8">
           <li>
-            <a
+             <Link to={"/"}>
+             <button
               href="#"
               className="block font-sans text-base font-normal leading-relaxed text-blue-gray-900 antialiased transition-colors hover:text-pink-500 focus:text-pink-500"
             >
-              About Us
-            </a>
+              Home
+            </button>
+             </Link>
           </li>
           <li>
-            <a
+          <Link to={"/favorite"}>
+             <button
               href="#"
               className="block font-sans text-base font-normal leading-relaxed text-blue-gray-900 antialiased transition-colors hover:text-pink-500 focus:text-pink-500"
             >
-              License
-            </a>
+              Favorite
+            </button>
+             </Link>
           </li>
-          <li>
-            <a
-              href="#"
-              className="block font-sans text-base font-normal leading-relaxed text-blue-gray-900 antialiased transition-colors hover:text-pink-500 focus:text-pink-500"
-            >
-              Contribute
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              className="block font-sans text-base font-normal leading-relaxed text-blue-gray-900 antialiased transition-colors hover:text-pink-500 focus:text-pink-500"
-            >
-              Contact Us
-            </a>
-          </li>
+          
+          
         </ul>
       </div>
       <hr className="my-8 border-blue-gray-50" />
       <p className="block text-center font-sans text-base font-normal leading-relaxed text-blue-gray-900 antialiased">
-        © 2023 Dev-Ashikur Ovi
+        © 2023 Dev-<a href="https://github.com/ashikurbd71" target='blank' className=' text-blue-900'> Ashikur Ovi</a> 
       </p>
     </footer>
         </div>

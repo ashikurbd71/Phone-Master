@@ -21,7 +21,7 @@ const Phoneinfo = () => {
     return (
         <>
         <div className='my-10'>
-              <h1 className='text-4xl font-bold mb-5 text-center'>Phone Information</h1>
+              <h1 className='lg:text-4xl text-xl font-bold mb-5 text-center'>Phone Information</h1>
         </div>
 
           <div>

@@ -6,7 +6,8 @@ import Favorite from '../Pages/Favorite/Favorite';
 import Login from '../Pages/Login/Login';
 import Error from '../Pages/Error/Error';
 import Phoneinfo from '../Component/PhoneInfo/Phoneinfo';
-
+import Register from '../Pages/Login/Register';
+import Privtepages from '../privte/Privtepages';
  const router  = createBrowserRouter([
 
     {
@@ -19,7 +20,7 @@ import Phoneinfo from '../Component/PhoneInfo/Phoneinfo';
          {
             path:"/",
             element:<Home></Home>,
-            loader: () => fetch('phones.json'),
+            loader: () => fetch('/phones.json'),
          },
 
          {
@@ -33,9 +34,16 @@ import Phoneinfo from '../Component/PhoneInfo/Phoneinfo';
 
          {
             path:'/phones/:id',
-            element:<Phoneinfo></Phoneinfo>,
-            loader: () => fetch('phones.json')
+            element: <Privtepages> <Phoneinfo></Phoneinfo> </Privtepages>,
+            loader: () => fetch('/phones.json')
+         },
+
+         {
+            path:'/register',
+            element:<Register></Register>
+         
          }
+
 
 
          ]

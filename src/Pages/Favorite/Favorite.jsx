@@ -11,7 +11,7 @@ const Favorite = () => {
  
          const finddata = JSON.parse(localStorage.getItem('favorite'))
            
-         const Total = finddata.reduce(  (pre,crr) => pre + crr.price,0 )
+         const Total = finddata?.reduce(  (pre,crr) => pre + crr.price,0 )
            setTotal(Total)
            
          if(finddata){
@@ -46,9 +46,9 @@ const Favorite = () => {
           <div>
 
           {
-          fevorite.length > 0 &&   <button onClick={handleremove} className='btn btn-primary bg-gradient-to-r from-cyan-500 text-white to-blue-500 flex justify-center mx-auto mt-10'>All Item Delete</button>}
+          fevorite?.length > 0 &&   <button onClick={handleremove} className='btn btn-primary bg-gradient-to-r from-cyan-500 text-white to-blue-500 flex justify-center mx-auto mt-10'>All Item Delete</button>}
 
-            <h1 className='text-3xl font-bold text-center mt-5'>Total Cost : {total} $</h1>
+            <h1 className='lg:text-3xl text-xl font-bold text-center mt-5'>Total Cost : {total} $</h1>
          
 
 
@@ -65,7 +65,7 @@ const Favorite = () => {
          </div>}</div>
 
        {
-        fevorite.length > 2  &&   <button onClick={() => setShow(!isShow)} className="btn btn-primary bg-gradient-to-r from-cyan-500 to-blue-500 flex justify-center text-white mx-auto">{isShow ? "See Less" : "Show All"}</button>
+        fevorite?.length > 2  &&   <button onClick={() => setShow(!isShow)} className="btn btn-primary bg-gradient-to-r from-cyan-500 to-blue-500 flex justify-center text-white mx-auto">{isShow ? "See Less" : "Show All"}</button>
        }
          </div>
      );

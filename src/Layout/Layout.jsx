@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import Navber from '../Component/Header/Navber/Navber';
 import Footer from '../Component/Footer/Footer';
+import { Toaster } from 'react-hot-toast';
 
 const Layout = () => {
 
@@ -39,6 +40,7 @@ const Layout = () => {
 
              </div>
             
+            <Toaster></Toaster>
             <Footer></Footer>
         </div>
     );

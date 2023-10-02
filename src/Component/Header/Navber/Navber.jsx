@@ -1,6 +1,24 @@
 import React from 'react';
 import { NavLink,Link } from 'react-router-dom';
+import UseAuth from '../../../Socile/Useauth/UseAuth';
 const Navber = () => {
+
+  const {logout,user} = UseAuth()
+
+  const handlelogout = () => {
+
+    logout()
+    .then((result) => {
+           
+      const user = result.user;
+       console.log(user)
+    }).catch((error) => {
+  
+      const errorCode = error.code;
+      console.log(errorCode)
+ 
+    });
+  }
     return (
         <div>
              
@@ -38,7 +56,7 @@ const Navber = () => {
           </ul>
       </ul>
     </div>
-    <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+    <Link to={'/'}><a className="lg:text-2xl text-lg font-bold">Phone Master</a></Link>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
@@ -70,7 +88,31 @@ const Navber = () => {
   </div>
   <div className="navbar-end">
 
-    <Link to={'/login'}><button type="button" className="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Login</button></Link>
+
+
+{
+
+  user?.email ?
+  <div className="dropdown dropdown-end">
+      <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+        <div className="w-10 rounded-full">
+          <img src= {user?.photoURL}/>
+        </div>
+      </label>
+      <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+        <li>
+          <a className="justify-between">
+            Profile
+            <span className="badge">New</span>
+          </a>
+        </li>
+        <li><a>{user?.displayName}</a></li>
+        <li><a onClick={handlelogout}>Logout</a></li>
+      </ul>
+    </div>
+  :  <Link to={'/login'}><button type="button" className="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Login</button></Link>
+}
+
   </div>
 </div>
 
